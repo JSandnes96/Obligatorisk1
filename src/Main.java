@@ -8,5 +8,6 @@ public class Main {
 
         System.out.println(sort1.maks(test) + " " + sort1.ombyttninger(test));
         System.out.println(sort1.antallUlikeSortert(test));
+        System.out.println(sort1.antallUlikeSortert(test));
     }
 }
