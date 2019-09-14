@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] test = {31,14,42,34,3,4,4};
+        int[] test = {1,1,2,3,4,4,7};
 
         Oblig1 sort1 = new Oblig1();
 

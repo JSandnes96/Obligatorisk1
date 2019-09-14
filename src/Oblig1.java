@@ -7,17 +7,12 @@ public class Oblig1 {
         if (a.length < 1)
             throw new java.util.NoSuchElementException("Tabellen er tom");
 
-        for(int i = 0; i < a.length; i++){
-            for(int j = i+1; j < a.length; j++){
-                if(a[i]>a[j]){
-                    int verdi = a[i];
-                    a[i] =a [j];
-                    a[j] = verdi;
-
-                }
-
+        for (int i = 0; i < a.length-1; i++ ){
+            if(a[i]>a[i+1]){
+                int verdi = a[i];
+                a[i] = a[i+1];
+                a[i+1] = verdi;
             }
-
         }
 
         return a[a.length-1];
@@ -30,18 +25,16 @@ public class Oblig1 {
         if (a.length < 1)
             throw new java.util.NoSuchElementException("Tabellen er tom");
 
-        for(int i = 0; i < a.length; i++){
-            for(int j = i+1; j < a.length; j++){
-                if(a[i]>a[j]){
-                    int verdi = a[i];
-                    a[i] = a[j];
-                    a[j] = verdi;
-                    teller++;
-                }
-
+        for (int i = 0; i < a.length-1; i++ ){
+            if(a[i]>a[i+1]){
+                int verdi = a[i];
+                a[i] = a[i+1];
+                a[i+1] = verdi;
+                teller++;
             }
-
         }
+
+
         return teller;
     }
 
@@ -50,22 +43,15 @@ public class Oblig1 {
     public static int antallUlikeSortert(int[] a){
         int antallUlike = 0;
 
-        for(int i = 0; i < a.length; i++){
-            for(int j = i+1; j < a.length; j++){
-                if(a[i] > a[j])
-                    throw new IllegalStateException("Tabellen må være sortert stigende");
+        for (int i = 0; i < a.length-1; i++ ){
+            if(a[i] > a[i+1])
+                throw new IllegalStateException("Tabellen må være sortert stigende");
 
-                if(a[i] == a[j]){
-                    antallUlike = antallUlike;
-                }
-
-                if(a[j]>a[i]){
-                    antallUlike++;
-                }
-
+            if(a[i+1]>a[i]){
+                antallUlike++;
             }
-
         }
+
         return antallUlike;
     }
 
