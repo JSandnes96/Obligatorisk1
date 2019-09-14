@@ -18,6 +18,7 @@ public class Oblig1 {
         return a[a.length-1];
     }
 
+
     public static int ombyttninger(int[] a){
 
         int teller = 0;
@@ -34,22 +35,26 @@ public class Oblig1 {
             }
         }
 
-
         return teller;
     }
 
     //Oppgave 2
 
     public static int antallUlikeSortert(int[] a){
-        int antallUlike = 0;
+        int antallUlike = 1; //maa starte på en siden det alltid vil vaere en ulik med mindre arrayet er tomt
 
         for (int i = 0; i < a.length-1; i++ ){
-            if(a[i] > a[i+1])
-                throw new IllegalStateException("Tabellen må være sortert stigende");
 
             if(a[i+1]>a[i]){
                 antallUlike++;
             }
+
+            if(a[i] > a[i+1])
+                throw new IllegalStateException("Tabellen må være sortert stigende");
+        }
+
+        if(a.length == 0){
+            antallUlike = 0; //Hvis arrayet er tomt er det 0 ulike
         }
 
         return antallUlike;
@@ -72,7 +77,24 @@ public class Oblig1 {
 
     //Oppgave 5
 
-    public static void rotasjon(char[] a){
+    public static void rotasjon(int[] a){//SKAL VÆRE CHAR
+
+        System.out.println("Urotert er: ");
+        for (int i = 0; i < a.length; i++){
+            System.out.print(a[i] + " ");
+        }
+
+        for(int i = 0; i < a.length; i++){
+            int siste = a.length-1;
+            for (int j = a.length-1; j> 0; j--){
+                a[j]=a[j-1];
+            }
+            a[0] = siste;
+        }
+        System.out.println("Rotert er: ");
+        for (int i = 0; i < a.length; i++){
+            System.out.print(a[i] + " ");
+        }
 
     }
 
