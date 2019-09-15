@@ -76,13 +76,18 @@ public class Oblig1 {
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
 
-        int antallUlike = 0;
-
-        for(int i = 0; i < a.length; i++){
-            antallUlike++;
+        int antallUlike = a.length; //starter med å anta at alle er ulike
+        for(int i = 0; i<a.length-1; i++){
+            for(int j = i+1; j<a.length; j++){
+                if(a[i] == a[j]) {
+                    antallUlike--;
+                    break;
+                }
+            }
         }
-
         return antallUlike;
+
+
     }
 
 
@@ -203,7 +208,7 @@ public class Oblig1 {
         int n = a.length; //Lengden av arrayet
 
         if (n < 3){ //Arrayet må ha minst 3 verdier
-            throw new NoSuchElementException("Arrayet må ha minst 3 verdier!")
+            throw new NoSuchElementException("Arrayet må ha minst 3 verdier!");
         }
 
         int minst = 0; //Posisjonen til minste
