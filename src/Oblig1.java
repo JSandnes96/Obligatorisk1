@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Oblig1 {
 
     //Oppgave 1
@@ -63,8 +65,15 @@ public class Oblig1 {
     //Oppgave 3
 
     public static int antallUlikeUsortert(int[] a){
-        int en = 0;
-        return en;
+
+        int antallUlike = 0;
+
+        for(int i = 0; i < a.length; i++){
+            antallUlike++;
+        }
+
+        return antallUlike;
+
     }
 
 
@@ -77,24 +86,29 @@ public class Oblig1 {
 
     //Oppgave 5
 
-    public static void rotasjon(int[] a){//SKAL VÆRE CHAR
+    public static void rotasjon(char[] a){
 
-        System.out.println("Urotert er: ");
-        for (int i = 0; i < a.length; i++){
-            System.out.print(a[i] + " ");
-        }
+        System.out.println("\nUrotert er: " + Arrays.toString(a));
 
-        for(int i = 0; i < a.length; i++){
-            int siste = a.length-1;
-            for (int j = a.length-1; j> 0; j--){
+        //DENNE SKRIVER UT SAMME ARRAY PÅ NYTT
+        /*for(int i = 0; i < a.length; i++){
+            char siste = a[a.length-1];
+            int j;
+            for (j = a.length-1; j> 0; j--){
                 a[j]=a[j-1];
             }
             a[0] = siste;
+        }*/
+
+        //DENNE SKRIVER UT RIKTIG MEN HAR LAGD NYTT ARRAY :(
+
+        char[] b = new char[a.length];
+
+        for(int i = 0; i <= a.length-1; i++){
+            b[(i+1) % a.length ] = a[i];
         }
-        System.out.println("Rotert er: ");
-        for (int i = 0; i < a.length; i++){
-            System.out.print(a[i] + " ");
-        }
+
+        System.out.println("\nRotert er: " + Arrays.toString(b));
 
     }
 
