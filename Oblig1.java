@@ -89,7 +89,18 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+
+        for (int i = 0; i < a.length; i++){
+            if(i % 2 == 0){
+
+            }
+            else{
+
+            }
+        }
+
+
     }
 
 
@@ -124,7 +135,14 @@ public class Oblig1 {
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
 
-        throw new NotImplementedException();
+        char[] b = new char[a.length];
+
+        for(int i = 0; i <= a.length-1; i++){
+            b[(i+k) % a.length ] = a[i];
+        }
+
+        System.out.println("\nRotert er: " + Arrays.toString(b));
+
     }
 
 
@@ -133,7 +151,19 @@ public class Oblig1 {
     /// 7a)
     public static String flett(String s, String t) {
 
-        throw new NotImplementedException();
+        //KOPIERT RETT FRA OPPG 1b i 1.3.11
+
+        int k = Math.min(a.length(), b.length());  // lengden på den korteste
+        StringBuilder s = new StringBuilder();
+
+        for (int i = 0; i < k; i++)
+        {
+            s.append(a.charAt(i)).append(b.charAt(i));
+        }
+
+        s.append(a.substring(k)).append(b.substring(k));
+
+        return s.toString();
     }
 
     /// 7b)

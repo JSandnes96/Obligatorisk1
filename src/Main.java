@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-
+        /*
         int[] test = {1,2,26,2,26,54,311};
         char[] test2 = {'A','B','C','D'};
 
@@ -13,6 +13,6 @@ public class Main {
         System.out.println("Oppgave 3: " + sort1.antallUlikeUsortert(test));
 
         sort1.rotasjon(test2);
-
+        */
     }
 }
