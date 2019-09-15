@@ -177,7 +177,22 @@ public class Oblig1 {
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
 
-        throw new NotImplementedException();
+        int[] indeks = new int[a.length];
+        int indeks-tall = a[0];
+        int minste = a[0];
+
+        for(int i = 0; i<a.length-1; i++){
+            for(int j = 0; j<a.length; j++){
+                if (a[i]<minste){
+                    indeks-tall = i;
+                }
+            }
+            indeks[i] = indeks-tall;
+        }
+
+
+
+
     }
 
 
@@ -185,7 +200,75 @@ public class Oblig1 {
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
 
-        throw new NotImplementedException();
+        int n = a.length; //Lengden av arrayet
+
+        if (n < 3){ //Arrayet må ha minst 3 verdier
+            throw new NoSuchElementException("Arrayet må ha minst 3 verdier!")
+        }
+
+        int minst = 0; //Posisjonen til minste
+        int nestMinst = 1; //Posisjonen til 2. minste
+        int tredjeMinst = 2; //Posisjonen til 3. minste
+
+        if (a[nestMinst] < a[minst]){
+            minst = 1;
+            nestMinst = 0;
+        }
+
+        if (a[tredjeMinst] < a[minst]){
+            int midlertidig = tredjeMinst;
+            tredjeMinst = minst;
+            minst = midlertidig;
+        }
+
+        if (a[tredjeMinst] < a[nesMinst]){
+            int midlertidig = tredjeMinst;
+            tredjeMinst = nestMinst;
+            nestMinst = midlertidig;
+        }
+
+        int minsteVerdi = a[minst];  //minste verdi
+        int nestMinsteVerdi = a[nestMinst];   //nest minste verdi
+        int tredjeMinsteVerdi = a[tredjeMinst];   //tredje minste verdi
+
+        for (int i = 3; i < a.length; i++){
+            int verdi = a[i];
+
+            if (verdi < tredjeMinsteVerdi){
+                if (verdi < nestMinsteVerdi){
+                    if (verdi < minsteVerdi){
+
+                        //Kan hende disse må endres litt på. Rekkefølge osv
+
+                        tredjeMinst = nestMinst;
+                        tredjeMinsteVerdi = nestMinsteVerdi;
+
+                        nestMinst = minst;
+                        nestMinsteVerdi = minsteVerdi;
+
+                        minst = i;
+                        minsteVerdi = verdi;
+
+                    }
+                    else{ //her er verdi >= maksverdi && verdi < nestmaksverdi
+
+                        tredjeMinst = nestMinst;
+                        tredjeMinsteVerdi = nestMinsteVerdi;
+
+                        nestMinst = i;
+                        nestMinsteVerdi = verdi;
+
+                    }
+                }
+                else{ // når verdi >= nestmaksverdi && verdi < tredjemaksverdi
+                    tredjeMinst = i;
+                    tredjeMinsteVerdi = verdi;
+                }
+            }
+        }
+        return new int[] {minst, nestMinst, tredjeMinst};
+
+
     }
 
 
