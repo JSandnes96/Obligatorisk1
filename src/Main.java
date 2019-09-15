@@ -13,6 +13,7 @@ public class Main {
         System.out.println("Oppgave 3: " + sort1.antallUlikeUsortert(test));
 
         sort1.rotasjon(test2);
+        d
         */
     }
 }
